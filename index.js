@@ -1,3 +1,5 @@
+import createCharacterCard from "./components/card/card.js";
+
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
@@ -15,23 +17,31 @@ const searchQuery = "";
 
 const url = "https://rickandmortyapi.com/api/character";
 
-export async function fetchRick() {
+export async function fetchCharacters() {
   try {
     const response = await fetch(url);
-    if (!response.ok) {
+    if (!response) {
       console.error("Error");
     } else {
       const data = await response.json();
+      console.log(data);
       console.log(data.results);
-      const array = data.results;
-      return array;
+      const characters = data.results;
+      characters.forEach((character) => {
+        const card = createCharacterCard(character);
+        renderCard(card);
+      });
     }
   } catch (error) {
     console.error("Du kannst ganix!!!");
   }
 }
 
-fetchRick();
+fetchCharacters();
 
-const characters = fetchRick();
-console.log(characters);
+// const characters = fetchCharacters();
+// console.log(characters);
+
+function renderCard(element) {
+  cardContainer.append(element);
+}

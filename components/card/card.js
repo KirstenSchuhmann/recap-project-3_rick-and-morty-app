@@ -1,6 +1,4 @@
-import { characters } from "../../index.js";
-
-export function createCharacterCard(characterData) {
+export default function createCharacterCard(characterData) {
   const characterCard = document.createElement("li");
   characterCard.classList.add("card");
   characterCard.innerHTML(`
