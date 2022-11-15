@@ -56,3 +56,11 @@ nextButton.addEventListener("click", () => {
     page = 0;
   }
 });
+
+prevButton.addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
+    fetchCharacters(page);
+    pagination.innerHTML = `${page} / 42`;
+  }
+});
