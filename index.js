@@ -15,14 +15,16 @@ const searchQuery = "";
 
 const url = "https://rickandmortyapi.com/api/character";
 
-async function fetchRick() {
+export async function fetchRick() {
   try {
     const response = await fetch(url);
     if (!response.ok) {
       console.error("Error");
     } else {
       const data = await response.json();
-      console.log(data.characters);
+      console.log(data.results);
+      const array = data.results;
+      return array;
     }
   } catch (error) {
     console.error("Du kannst ganix!!!");
@@ -30,3 +32,6 @@ async function fetchRick() {
 }
 
 fetchRick();
+
+const characters = fetchRick();
+console.log(characters);
