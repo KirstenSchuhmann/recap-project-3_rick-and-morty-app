@@ -22,7 +22,7 @@ async function fetchRick() {
       console.error("Error");
     } else {
       const data = await response.json();
-      console.log(data);
+      console.log(data.characters);
     }
   } catch (error) {
     console.error("Du kannst ganix!!!");
