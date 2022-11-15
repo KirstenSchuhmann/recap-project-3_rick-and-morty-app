@@ -26,6 +26,7 @@ export async function fetchCharacters() {
       const data = await response.json();
       console.log(data);
       console.log(data.results);
+      console.log(data.results[0].image);
       const characters = data.results;
       characters.forEach((character) => {
         const card = createCharacterCard(character);
